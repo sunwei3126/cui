@@ -1,0 +1,37 @@
+{
+  "messages": [
+    {
+      "type": "user",
+      "text": "请帮我查看项目简介，并总结核心能力。"
+    },
+    {
+      "type": "assistant",
+      "blocks": [
+        { "type": "thinking", "text": "正在查找 docs/overview.md 以了解项目背景。" },
+        {
+          "type": "tool_use",
+          "toolName": "read",
+          "displayName": "读取文件",
+          "arguments": { "path": "docs/overview.md" },
+          "result": { "status": "pending" }
+        }
+      ]
+    },
+    {
+      "type": "assistant",
+      "blocks": [
+        {
+          "type": "tool_use",
+          "toolName": "read",
+          "displayName": "读取文件",
+          "arguments": { "path": "docs/overview.md" },
+          "result": {
+            "status": "completed",
+            "output": "# Common Agent UI\n- 支持多模型\n- 浏览器实时监控"
+          }
+        },
+        { "type": "text", "text": "我已读取项目概览，接下来会给出总结。" }
+      ]
+    }
+  ]
+}
